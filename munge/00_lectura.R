@@ -18,7 +18,7 @@ base_implicita <-
 base_ola_1 <- 
   read_sav('data/Data Visualizador Pepsi Irlanda/Raw SPSS files/Wave 1 data 10-5-21.sav')
 
-base_ola_2 <- 
+basebase_ola_2 <- 
   read_sav('data/Data Visualizador Pepsi Irlanda/Raw SPSS files/Wave 2 data 10-5-21.sav')
 
 ################################################################################
@@ -27,9 +27,32 @@ base_ola_2 <-
 
 # 1.1. Base implicita -----------------------------------------------------
 
-base_implicita %>% 
-  names()
+base_ola_1 %>% 
+  select(-contains('HIDDEN'), -contains('BANNER'), -contains('Driver')) %>% 
+  names() %>% 
+  enframe() %>% 
+  View()
 
 base_implicita %>% 
   select(contains('banner')) %>% 
-  as_factor()
+  as_factor() %>% 
+  View
+
+base_implicita %>% 
+  names() %>% 
+  enframe() %>% 
+  View()
+
+base_ola_1 %>% 
+  select('SERIAL')
+
+base_ola_2 %>% 
+  select(contains('resp'), everything())
+
+base_implicita %>% 
+  select(respid)
+
+################################################################################
+##  ----------------------------------------------------
+################################################################################
+
